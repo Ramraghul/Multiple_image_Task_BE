@@ -37,6 +37,10 @@ let upload = multer({
 
 let uploadHandler = upload.array('photos');
 
+app.get('/',(req,res)=>{
+    res.send('<h1>Working</h1>')
+})
+
 app.post('/upload', (req, res) => {
     uploadHandler(req, res, function (err) {
         if (err instanceof multer.MulterError) {
